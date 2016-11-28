@@ -43,8 +43,8 @@ public class FileUtils {
      *            文件路径
      * @return List&lt;String&gt;
      */
-    public static List<String> ReadLines(String filePath) {
-        return ReadLines(filePath, defaultCharset);
+    public static List<String> readLines(String filePath) {
+        return readLines(filePath, defaultCharset);
     }
 
     /**
@@ -56,12 +56,16 @@ public class FileUtils {
      *            文件编码
      * @return List&lt;String&gt;
      */
-    public static List<String> ReadLines(String filePath, String charset) {
+    public static List<String> readLines(String filePath, String charset) {
         List<String> lineList = new ArrayList<String>();
         FileInputStream fis = null;
         InputStreamReader isr = null;
         BufferedReader br = null;
         try {
+            File file = new File(filePath);
+            if (!file.exists()) {
+                return null;
+            }
             fis = new FileInputStream(filePath);
             isr = new InputStreamReader(fis, charset);
             br = new BufferedReader(isr);
@@ -107,8 +111,8 @@ public class FileUtils {
      *            文件内容
      * @return boolean
      */
-    public static boolean writerFile(String filePath, String text) {
-        return writerFile(filePath, text, 0, text.length(), defaultCharset, false);
+    public static boolean writeFile(String filePath, String text) {
+        return writeFile(filePath, text, 0, text.length(), defaultCharset, false);
     }
 
     /**
@@ -122,8 +126,8 @@ public class FileUtils {
      *            文件编码
      * @return boolean
      */
-    public static boolean writerFile(String filePath, String text, String charset) {
-        return writerFile(filePath, text, 0, text.length(), charset, false);
+    public static boolean writeFile(String filePath, String text, String charset) {
+        return writeFile(filePath, text, 0, text.length(), charset, false);
     }
 
     /**
@@ -137,8 +141,8 @@ public class FileUtils {
      *            是否追加
      * @return boolean
      */
-    public static boolean writerFile(String filePath, String text, boolean append) {
-        return writerFile(filePath, text, 0, text.length(), defaultCharset, append);
+    public static boolean writeFile(String filePath, String text, boolean append) {
+        return writeFile(filePath, text, 0, text.length(), defaultCharset, append);
     }
 
     /**
@@ -154,8 +158,8 @@ public class FileUtils {
      *            是否追加
      * @return boolean
      */
-    public static boolean writerFile(String filePath, String text, String charset, boolean append) {
-        return writerFile(filePath, text, 0, text.length(), charset, append);
+    public static boolean writeFile(String filePath, String text, String charset, boolean append) {
+        return writeFile(filePath, text, 0, text.length(), charset, append);
     }
 
     /**
@@ -175,7 +179,7 @@ public class FileUtils {
      *            是否追加
      * @return boolean
      */
-    public static boolean writerFile(String filePath, String text, int offset, int length, String charset,
+    public static boolean writeFile(String filePath, String text, int offset, int length, String charset,
             boolean append) {
         FileOutputStream fos = null;
         OutputStreamWriter osw = null;
