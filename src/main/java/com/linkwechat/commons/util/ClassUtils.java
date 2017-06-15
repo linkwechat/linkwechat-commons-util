@@ -1,8 +1,5 @@
 package com.linkwechat.commons.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 /**
  * Class工具类
  * 
@@ -10,8 +7,6 @@ import org.apache.commons.logging.LogFactory;
  * @version 1.0
  */
 public class ClassUtils {
-
-    private static final Log logger = LogFactory.getLog(ClassUtils.class);
 
     /**
      * 获取调用的类名

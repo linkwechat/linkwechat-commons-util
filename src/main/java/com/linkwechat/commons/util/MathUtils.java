@@ -1,8 +1,5 @@
 package com.linkwechat.commons.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 /**
  * 数学工具类
  * 
@@ -10,8 +7,6 @@ import org.apache.commons.logging.LogFactory;
  * @version 1.0
  */
 public class MathUtils {
-
-    private static final Log logger = LogFactory.getLog(MathUtils.class);
 
     /**
      * 获取[n, m]区间内的随机数

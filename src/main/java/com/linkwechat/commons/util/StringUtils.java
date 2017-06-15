@@ -1,8 +1,5 @@
 package com.linkwechat.commons.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 /**
  * 字符串工具类
  * 
@@ -10,8 +7,6 @@ import org.apache.commons.logging.LogFactory;
  * @version 1.0
  */
 public class StringUtils {
-
-    private static final Log logger = LogFactory.getLog(StringUtils.class);
 
     /**
      * 检查字符串是否为null或空字符串""，如果为空, 则返回true。

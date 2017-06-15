@@ -1,8 +1,5 @@
 package com.linkwechat.commons.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -14,8 +11,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * @version 1.0
  */
 public class JsonUtils {
-
-    private static final Log logger = LogFactory.getLog(JsonUtils.class);
 
     private final static String datePattern = "yyyy-MM-dd HH:mm:ss";
     private final static SerializerFeature[] features = { SerializerFeature.DisableCircularReferenceDetect };
