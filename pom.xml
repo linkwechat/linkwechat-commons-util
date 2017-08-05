@@ -22,6 +22,8 @@
         <jcl.version>1.2</jcl.version>
         <!-- log4j2日志服务 -->
         <log4j2.version>2.7</log4j2.version>
+        <!-- servlet框架 -->
+        <servlet.version>3.1.0</servlet.version>
         <!-- fastjson JSON解析 -->
         <fastjson.version>1.2.24</fastjson.version>
         <!-- junit单元测试框架 -->
@@ -48,6 +50,13 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j2.version}</version>
+        </dependency>
+
+        <!-- servlet框架 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
         </dependency>
 
         <!-- fastjson JSON解析 -->

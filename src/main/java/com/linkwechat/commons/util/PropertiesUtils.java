@@ -22,20 +22,36 @@ public class PropertiesUtils {
 
     private static final Log logger = LogFactory.getLog(PropertiesUtils.class);
 
-    private Properties pro = null;
+    private Properties props = null;
+
+    public PropertiesUtils() {
+        props = new Properties();
+    }
 
     public PropertiesUtils(String path) throws Exception {
-        pro = loadProperty(path);
+        props = loadProperty(path);
     }
 
     public PropertiesUtils(InputStream inputStream) throws Exception {
-        pro = new Properties();
-        pro.load(inputStream);
+        props = new Properties();
+        props.load(inputStream);
+    }
+
+    public Object setProperty(String key, Object value) {
+        return props.put(key, value);
+    }
+
+    public void putAll(Map<? extends Object, ? extends Object> t) {
+        props.putAll(t);
+    }
+
+    public boolean containsKey(String key) {
+        return props.containsKey(key);
     }
 
     public String getString(String key) throws Exception {
         try {
-            return pro.getProperty(key);
+            return props.getProperty(key);
         } catch (Exception e) {
             throw new Exception("key:" + key);
         }
@@ -43,7 +59,7 @@ public class PropertiesUtils {
 
     public int getInt(String key) throws Exception {
         try {
-            return Integer.parseInt(pro.getProperty(key));
+            return Integer.parseInt(props.getProperty(key));
         } catch (Exception e) {
             throw new Exception("key:" + key);
         }
@@ -51,7 +67,7 @@ public class PropertiesUtils {
 
     public double getDouble(String key) throws Exception {
         try {
-            return Double.parseDouble(pro.getProperty(key));
+            return Double.parseDouble(props.getProperty(key));
         } catch (Exception e) {
             throw new Exception("key:" + key);
         }
@@ -59,7 +75,7 @@ public class PropertiesUtils {
 
     public long getLong(String key) throws Exception {
         try {
-            return Long.parseLong(pro.getProperty(key));
+            return Long.parseLong(props.getProperty(key));
         } catch (Exception e) {
             throw new Exception("key:" + key);
         }
@@ -67,7 +83,7 @@ public class PropertiesUtils {
 
     public float getFloat(String key) throws Exception {
         try {
-            return Float.parseFloat(pro.getProperty(key));
+            return Float.parseFloat(props.getProperty(key));
         } catch (Exception e) {
             throw new Exception("key:" + key);
         }
@@ -75,18 +91,18 @@ public class PropertiesUtils {
 
     public boolean getBoolean(String key) throws Exception {
         try {
-            return Boolean.parseBoolean(pro.getProperty(key));
+            return Boolean.parseBoolean(props.getProperty(key));
         } catch (Exception e) {
             throw new Exception("key:" + key);
         }
     }
 
     public Set<Object> getAllKey() {
-        return pro.keySet();
+        return props.keySet();
     }
 
     public Collection<Object> getAllValue() {
-        return pro.values();
+        return props.values();
     }
 
     public Map<String, Object> getAllKeyValue() {
@@ -96,12 +112,12 @@ public class PropertiesUtils {
         Iterator<Object> it = keys.iterator();
         while (it.hasNext()) {
             String key = it.next().toString();
-            mapAll.put(key, pro.get(key));
+            mapAll.put(key, props.get(key));
         }
         return mapAll;
     }
 
-    private Properties loadProperty(String filePath) throws Exception {
+    public static Properties loadProperty(String filePath) throws Exception {
         FileInputStream fis = null;
         Properties pro = new Properties();
         try {
